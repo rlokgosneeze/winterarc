@@ -1,0 +1,1332 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Winter Arc Routine</title>
+
+<style>
+
+/* =========================
+   BASIC RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #17334d 0%, #07111c 45%, #03070b 100%);
+    color: #f4f7fb;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 92%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 0 60px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.small-title {
+    color: #70caff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+header h1 {
+    font-size: clamp(40px, 7vw, 65px);
+    margin: 10px 0;
+    letter-spacing: -3px;
+}
+
+header p {
+    color: #9eafbf;
+    font-size: 16px;
+}
+
+
+/* =========================
+   SECTION TITLES
+========================= */
+
+.section-title {
+    font-size: 28px;
+    margin: 38px 0 16px;
+}
+
+
+/* =========================
+   TABLE CONTAINER
+========================= */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 18px;
+}
+
+
+/* =========================
+   DAILY ROUTINE TABLE
+========================= */
+
+.routine-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+
+.routine-table th {
+    background: #15334d;
+    color: #7ed0ff;
+    padding: 18px;
+    text-align: left;
+    font-size: 15px;
+}
+
+.routine-table td {
+    padding: 18px;
+    background: #0c1925;
+    border-bottom: 1px solid #1d3040;
+    vertical-align: top;
+    line-height: 1.5;
+}
+
+.routine-table tr:hover td {
+    background: #122536;
+}
+
+.time {
+    color: #74caff;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.work {
+    font-weight: bold;
+}
+
+.food {
+    color: #bdcbd6;
+}
+
+.food span {
+    color: #7ed0ff;
+    font-weight: bold;
+}
+
+
+/* Current routine row */
+
+.current-row td {
+    background: #14354e !important;
+    box-shadow: inset 4px 0 0 #65c8ff;
+}
+
+
+/* =========================
+   WEEKLY WORKOUT TABLE
+========================= */
+
+.weekly-table {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+}
+
+.weekly-table th {
+    background: #15334d;
+    color: #7ed0ff;
+    padding: 17px;
+    text-align: left;
+}
+
+.weekly-table td {
+    padding: 17px;
+    background: #0c1925;
+    border-bottom: 1px solid #1d3040;
+    line-height: 1.5;
+}
+
+.weekly-table tr:hover td {
+    background: #122536;
+}
+
+.day {
+    font-weight: bold;
+    color: white;
+}
+
+.workout {
+    color: #c5d2dc;
+}
+
+
+/* =========================
+   WORKOUT CARDS
+========================= */
+
+.workout-card {
+    background: #0c1925;
+    border: 1px solid #203b50;
+    border-radius: 18px;
+    padding: 24px;
+}
+
+.workout-heading {
+    color: #7ed0ff;
+    font-size: 21px;
+    margin-bottom: 17px;
+}
+
+
+/* Exercise grid */
+
+.exercise-list {
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
+    gap: 13px;
+}
+
+.exercise {
+    background: #122536;
+    border: 1px solid #20394c;
+    border-radius: 14px;
+    padding: 17px;
+    transition: 0.25s ease;
+}
+
+.exercise:hover {
+    transform: translateY(-3px);
+    background: #173046;
+}
+
+.exercise strong {
+    color: #7ed0ff;
+    font-size: 15px;
+}
+
+.exercise p {
+    margin-top: 8px;
+    color: #aebdca;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   HIIT
+========================= */
+
+.hiit-card {
+    background: #0c1925;
+    border: 1px solid #203b50;
+    border-radius: 18px;
+    padding: 24px;
+}
+
+.hiit-intro {
+    color: #aebdca;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.hiit-heading {
+    color: #7ed0ff;
+    font-size: 21px;
+    margin-bottom: 16px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    text-align: center;
+    margin-top: 45px;
+    color: #627586;
+    font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .container {
+        width: 95%;
+        padding-top: 25px;
+    }
+
+    header h1 {
+        font-size: 40px;
+        letter-spacing: -2px;
+    }
+
+    .section-title {
+        font-size: 23px;
+    }
+
+    .routine-table th,
+    .routine-table td,
+    .weekly-table th,
+    .weekly-table td {
+        padding: 13px;
+    }
+
+    .exercise-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<!-- =================================================
+     HEADER
+================================================= -->
+
+<header>
+
+    <div class="small-title">
+        OCTOBER 1 • WINTER ARC
+    </div>
+
+    <h1>MY DAILY ROUTINE</h1>
+
+    <p>
+        Discipline • Study • Training • Recovery
+    </p>
+
+</header>
+
+
+
+<!-- =================================================
+     DAILY MASTER SCHEDULE
+================================================= -->
+
+<h2 class="section-title">
+    📅 Daily Master Schedule
+</h2>
+
+
+<div class="table-wrapper">
+
+<table class="routine-table">
+
+<thead>
+
+<tr>
+
+    <th>Time</th>
+
+    <th>Work / Activity</th>
+
+    <th>Food / Drink</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<!-- 03:30 -->
+
+<tr>
+
+<td class="time">
+03:30 AM
+</td>
+
+<td class="work">
+
+🌅 Wake Up
+
+<br>
+
+Start the day and get ready for the morning.
+
+</td>
+
+<td class="food">
+
+<span>Drink:</span>
+
+Large glass of plain water.
+
+</td>
+
+</tr>
+
+
+
+<!-- 04:00 -->
+
+<tr>
+
+<td class="time">
+04:00 AM – 04:30 AM
+</td>
+
+<td class="work">
+
+🏃 3 km Morning Run
+
+<br>
+
+Keep a steady and comfortable pace.
+
+</td>
+
+<td class="food">
+
+—
+
+</td>
+
+</tr>
+
+
+
+<!-- 05:00 -->
+
+<tr>
+
+<td class="time">
+05:00 AM
+</td>
+
+<td class="work">
+
+🍽️ Early Morning Fuel
+
+<br>
+
+Soak soya chunks in hot water for 20 minutes,
+boil, squeeze and eat with spices.
+
+</td>
+
+<td class="food">
+
+<span>Food:</span>
+
+30 g dry soya chunks
+
+<br><br>
+
+<span>Drink:</span>
+
+300 ml whole cow's milk
+
+</td>
+
+</tr>
+
+
+
+<!-- SCHOOL -->
+
+<tr>
+
+<td class="time">
+06:00 AM – 01:00 PM
+</td>
+
+<td class="work">
+
+🏫 School
+
+<br>
+
+Attend classes and focus on studies.
+
+</td>
+
+<td class="food">
+
+<span>Drink:</span>
+
+Water between classes.
+
+</td>
+
+</tr>
+
+
+
+<!-- PRE WORKOUT -->
+
+<tr>
+
+<td class="time">
+01:30 PM
+</td>
+
+<td class="work">
+
+💧 Pre-Workout Window
+
+<br>
+
+Change out of school uniform and prepare.
+
+</td>
+
+<td class="food">
+
+<span>Drink:</span>
+
+Glass of water.
+
+</td>
+
+</tr>
+
+
+
+<!-- WORKOUT -->
+
+<tr>
+
+<td class="time">
+01:45 PM – 02:15 PM
+</td>
+
+<td class="work">
+
+🏋️ Workout
+
+<br>
+
+Follow the workout assigned for the day.
+
+</td>
+
+<td class="food">
+
+—
+
+</td>
+
+</tr>
+
+
+
+<!-- LUNCH -->
+
+<tr>
+
+<td class="time">
+02:30 PM
+</td>
+
+<td class="work">
+
+🍚 Post-Workout Lunch
+
+</td>
+
+<td class="food">
+
+<span>Food:</span>
+
+250 g boiled white rice
+
+<br>
+
+Family dal or home vegetables if available.
+
+</td>
+
+</tr>
+
+
+
+<!-- STUDY -->
+
+<tr>
+
+<td class="time">
+03:00 PM – 03:50 PM
+</td>
+
+<td class="work">
+
+📝 Homework & Study
+
+<br>
+
+Finish schoolwork before tuition.
+
+</td>
+
+<td class="food">
+
+—
+
+</td>
+
+</tr>
+
+
+
+<!-- TUITION -->
+
+<tr>
+
+<td class="time">
+04:00 PM – 05:30 PM
+</td>
+
+<td class="work">
+
+📚 Tuition Classes
+
+</td>
+
+<td class="food">
+
+Water as needed.
+
+</td>
+
+</tr>
+
+
+
+<!-- DINNER -->
+
+<tr>
+
+<td class="time">
+05:45 PM
+</td>
+
+<td class="work">
+
+🍽️ Night Recovery Dinner
+
+<br>
+
+Prepare soya chunks by soaking,
+boiling and squeezing.
+
+</td>
+
+<td class="food">
+
+<span>Food:</span>
+
+30 g dry soya chunks
+
+<br><br>
+
+<span>Drink:</span>
+
+350 ml whole cow's milk
+
+<br><br>
+
+Fresh lemon over soya if desired.
+
+</td>
+
+</tr>
+
+
+
+<!-- MILK -->
+
+<tr>
+
+<td class="time">
+06:30 PM
+</td>
+
+<td class="work">
+
+🥛 Before-Bed Fuel
+
+</td>
+
+<td class="food">
+
+<span>Drink:</span>
+
+Final 350 ml whole cow's milk.
+
+</td>
+
+</tr>
+
+
+
+<!-- SLEEP -->
+
+<tr>
+
+<td class="time">
+07:00 PM – 04:00 AM
+</td>
+
+<td class="work">
+
+😴 Sleep
+
+<br>
+
+Phone off and room dark.
+
+</td>
+
+<td class="food">
+
+—
+
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+<!-- =================================================
+     WEEKLY EXERCISE BREAKDOWN
+================================================= -->
+
+<h2 class="section-title">
+    ⏱️ Weekly Exercise Breakdown
+</h2>
+
+
+<div class="table-wrapper">
+
+<table class="weekly-table">
+
+<thead>
+
+<tr>
+
+<th>Day</th>
+
+<th>Workout Type (01:45 PM)</th>
+
+<th>Focus</th>
+
+</tr>
+
+</thead>
+
+
+<tbody>
+
+
+<tr>
+
+<td class="day">
+Monday
+</td>
+
+<td class="workout">
+Strength Training: Upper Body
+</td>
+
+<td>
+Chest, Shoulders, Arms & Core
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="day">
+Tuesday
+</td>
+
+<td class="workout">
+15-Minute HIIT Circuit
+</td>
+
+<td>
+Cardio & Stamina
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="day">
+Wednesday
+</td>
+
+<td class="workout">
+Strength Training: Lower Body
+</td>
+
+<td>
+Leg Strength
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="day">
+Thursday
+</td>
+
+<td class="workout">
+15-Minute HIIT Circuit
+</td>
+
+<td>
+Cardio & Stamina
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="day">
+Friday
+</td>
+
+<td class="workout">
+Strength Training: Upper Body
+</td>
+
+<td>
+Chest, Shoulders, Arms & Core
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="day">
+Saturday
+</td>
+
+<td class="workout">
+Rest
+</td>
+
+<td>
+3 km Morning Run Only
+</td>
+
+</tr>
+
+
+
+<tr>
+
+<td class="day">
+Sunday
+</td>
+
+<td class="workout">
+Total Rest Day
+</td>
+
+<td>
+Recovery
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+
+
+<!-- =================================================
+     UPPER BODY
+================================================= -->
+
+<h2 class="section-title">
+    💪 Mon / Fri: Upper Body & Core
+</h2>
+
+
+<div class="workout-card">
+
+<div class="exercise-list">
+
+
+<div class="exercise">
+
+<strong>
+01 • Push-ups
+</strong>
+
+<p>
+3 Sets × Max Reps
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+02 • Dead-Hangs
+</strong>
+
+<p>
+3 Sets × 30–45 Seconds
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+03 • Pike Push-ups
+</strong>
+
+<p>
+3 Sets × 8–12 Reps
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+04 • Plank Hold
+</strong>
+
+<p>
+3 Sets × 45–60 Seconds
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+     LOWER BODY
+================================================= -->
+
+<h2 class="section-title">
+    🦵 Wed: Lower Body
+</h2>
+
+
+<div class="workout-card">
+
+<div class="exercise-list">
+
+
+<div class="exercise">
+
+<strong>
+01 • Bodyweight Squats
+</strong>
+
+<p>
+3 Sets × 15–20 Reps
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+02 • Walking Lunges
+</strong>
+
+<p>
+3 Sets × 12 Total Steps
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+03 • Glute Bridges
+</strong>
+
+<p>
+3 Sets × 15 Reps
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+04 • Standing Calf Raises
+</strong>
+
+<p>
+3 Sets × 20–25 Reps
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+     HIIT
+================================================= -->
+
+<h2 class="section-title">
+    🔥 15-Minute HIIT Circuit
+</h2>
+
+
+<div class="hiit-card">
+
+<p class="hiit-intro">
+
+Perform each movement for 30 seconds,
+followed by 30 seconds of rest, then move
+to the next exercise.
+
+</p>
+
+
+<div class="exercise-list">
+
+
+<div class="exercise">
+
+<strong>
+01 • Jumping Jacks
+</strong>
+
+<p>
+30 sec Work / 30 sec Rest
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+02 • Mountain Climbers
+</strong>
+
+<p>
+30 sec Work / 30 sec Rest
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+03 • Fast Bodyweight Squats
+</strong>
+
+<p>
+30 sec Work / 30 sec Rest
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+04 • High Knees
+</strong>
+
+<p>
+30 sec Work / 30 sec Rest
+</p>
+
+</div>
+
+
+
+<div class="exercise">
+
+<strong>
+05 • Shadow Boxing
+</strong>
+
+<p>
+30 sec Work / 30 sec Rest
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<!-- =================================================
+     FOOTER
+================================================= -->
+
+<div class="footer">
+
+WINTER ARC • Stay consistent • Recover well
+
+</div>
+
+
+</div>
+
+
+
+<script>
+
+/* ==========================================
+   AUTOMATICALLY HIGHLIGHT CURRENT TIME
+========================================== */
+
+function highlightCurrentRoutine() {
+
+    const rows =
+        document.querySelectorAll(
+            ".routine-table tbody tr"
+        );
+
+    const now = new Date();
+
+    const currentMinutes =
+        now.getHours() * 60 +
+        now.getMinutes();
+
+
+    /*
+        Time ranges:
+
+        03:30 → 04:00
+        04:00 → 05:00
+        05:00 → 06:00
+        06:00 → 13:00
+        13:00 → 13:30
+        13:30 → 14:15
+        14:15 → 15:00
+        15:00 → 15:50
+        16:00 → 17:30
+        17:45 → 18:30
+        18:30 → 19:00
+        19:00 → 04:00
+    */
+
+    const ranges = [
+
+        [210, 240],
+
+        [240, 300],
+
+        [300, 360],
+
+        [360, 780],
+
+        [780, 810],
+
+        [810, 855],
+
+        [855, 900],
+
+        [900, 950],
+
+        [960, 1050],
+
+        [1065, 1110],
+
+        [1110, 1140],
+
+        [1140, 1440]
+
+    ];
+
+
+    rows.forEach(row => {
+
+        row.classList.remove(
+            "current-row"
+        );
+
+    });
+
+
+    ranges.forEach((range, index) => {
+
+        const start = range[0];
+        const end = range[1];
+
+
+        /* Sleep continues from midnight to 4 AM */
+
+        if (index === 11) {
+
+            if (
+                currentMinutes >= start ||
+                currentMinutes < 240
+            ) {
+
+                rows[index].classList.add(
+                    "current-row"
+                );
+
+            }
+
+        }
+
+        else {
+
+            if (
+                currentMinutes >= start &&
+                currentMinutes < end
+            ) {
+
+                rows[index].classList.add(
+                    "current-row"
+                );
+
+            }
+
+        }
+
+    });
+
+}
+
+
+/* Run when page loads */
+
+highlightCurrentRoutine();
+
+
+/* Update every minute */
+
+setInterval(
+    highlightCurrentRoutine,
+    60000
+);
+
+
+/* ==========================================
+   SHOW TODAY'S WORKOUT IN CONSOLE
+========================================== */
+
+const workouts = {
+
+    0: "Total Rest Day",
+
+    1: "Upper Body & Core",
+
+    2: "15-Minute HIIT Circuit",
+
+    3: "Lower Body",
+
+    4: "15-Minute HIIT Circuit",
+
+    5: "Upper Body & Core",
+
+    6: "Rest - 3 km Morning Run Only"
+
+};
+
+
+const today =
+    new Date().getDay();
+
+
+console.log(
+    "Today's Winter Arc workout:",
+    workouts[today]
+);
+
+</script>
+
+</body>
+</html>
+```
